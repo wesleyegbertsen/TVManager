@@ -1,0 +1,28 @@
+#login-form {
+    padding: 10px 25px;
+}
+
+#user-image {
+    max-width: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+#user-image-m {
+    max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#user-info-sidebar {
+    border-bottom: 1px solid #ddd;
+    margin-top: 32px;
+    text-align: center;
+    color: #000000;
+}
+
+.side-nav .divider {
+    margin-bottom: 1px;
+}

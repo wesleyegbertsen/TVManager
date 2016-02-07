@@ -1,0 +1,51 @@
+
+/*FOOTER START*/
+
+body {
+    /*sticky footer stuff*/
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -webkit-box;
+
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    -webkit-box-orient: vertical;
+
+    min-height: 100vh;
+}
+
+main {
+    /*sticky footer stuff*/
+    flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+    -webkit-box-flex: 1;
+}
+
+/* Fix for sticky footer in IE, class (.flexboxtweener) will be dynamically added by modernizr if IE */
+.flexboxtweener, .flexboxtweener > body {
+    height: 100%;
+}
+
+footer.page-footer {
+    padding-top: 0px !important;
+}
+
+/*FOOTER END*/
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/* when hiding */
+.error.ng-hide-add {
+    animation:0.5s bounceOut ease;
+}
+
+/* when showing*/
+.error.ng-hide-remove {
+    animation:0.5s bounceIn ease;
+}

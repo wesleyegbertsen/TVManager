@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tvApp" ng-controller="ctrlMain">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>TVManager</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" type="text/css" href="css/materialize.css"  media="screen,projection"/>
+    <link href="css/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/theme/default.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="library/fancybox/jquery.fancybox.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+    <!-- Dropdown Structure -->
+    <ul id="user-dropdown" class="dropdown-content">
+        <li><a href="#/profile">profile</a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:;" ng-click="logout()">Logout</a></li>
+    </ul>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#/" class="brand-logo">TVManager</a>
+            <ul class="right hide-on-med-and-down">
+                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
+                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>
+                <li ng-show="user.isLoggedIn" ng-cloak><a ng-show="user.isLoggedIn" class="dropdown-button" href="#!" data-activates="user-dropdown"><img id="user-image" src="img/default-user.png" alt="" class="circle responsive-img"> {{user.name}}<i class="user-arrow mdi-navigation-arrow-drop-down right"></i></a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+
+                <div ng-show="user.isLoggedIn" id="user-info-sidebar">
+                    <img id="user-image-m" src="img/default-user.png" alt="" class="circle responsive-img">
+                    <span ng-bind="user.name"></span>
+                </div>
+                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
+                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>
+                <div ng-show="user.isLoggedIn" ng-cloak class="divider"></div>
+                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'profile' }"><a href="#/profile">Profile</a></li>
+                <li ng-show="user.isLoggedIn" ng-cloak><a href="javascript:;" ng-click="logout()">Logout</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container {{main.currentPage}}">
+            <br>
+            <h3 class="header" ng-bind="main.pageTitle"></h3>
+            <ng-view></ng-view>
+        </div>
+    </main>
+
+    <footer class="page-footer orange">
+        <div class="footer-copyright">
+            <div class="container white-text">
+                © Wesley Egbertsen
+                <span class="white-text right">Versie 0.1</span>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="library/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/service/user.js"></script>
+    <script src="library/modernizr.min.js"></script>
+    <script src="library/fancybox/jquery.fancybox.js"></script>
+    <script src="library/modernizr.min.js"></script>
+</body>
+</html>
