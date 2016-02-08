@@ -19,6 +19,10 @@ theApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'templates/profile.html',
             controller: 'ctrlProfile'
         }).
+        when("/tvshow/:tvShowId", {
+            templateUrl: "templates/tvshow.html",
+            controller: "ctrlTvShow"
+        }).
         otherwise({
             redirectTo: '/'
         });
@@ -92,6 +96,14 @@ theApp.controller("ctrlSettings",function($scope) {
 theApp.controller("ctrlProfile",function($scope) {
     "use strict";
     $scope.setMainOptions("profile", "Profile");
+
+});
+
+theApp.controller("ctrlTvShow",function($scope, $routeParams) {
+    "use strict";
+    $scope.setMainOptions("tvshow", "TV Show");
+
+    $scope.tvShowId = $routeParams.tvShowId;
 
 });
 
@@ -169,13 +181,13 @@ theApp.directive("tvShowCard", function () {
         },
         templateUrl: "directives/tvshowcard.html",
         link: function (scope, element, attrs) {
-            scope.ytVideo = function(ytId, title) {
+            scope.ytVideo = function() {
                 $(function () {
                     $.fancybox.open([
                         {
                             type: 'iframe',
-                            href : 'http://www.youtube.com/embed/'+ytId+'?autoplay=1&wmode=opaque',
-                            title : title
+                            href : 'http://www.youtube.com/embed/'+attrs.ytid+'?autoplay=1&wmode=opaque',
+                            title : attrs.name
                         }
                     ], {
                         padding : 0,

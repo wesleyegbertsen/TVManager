@@ -18,7 +18,7 @@ function getUsers() {
 
 // GET http://www.yourwebsite.com/api/users/search/sri
 function getUserSearch($query) {
-    $sql = "SELECT user_id,username,name,profile_pic FROM users WHERE username LIKE ? ORDER BY user_id DESC";
+    $sql = "SELECT user_id,username,name,password FROM users WHERE username LIKE ? ORDER BY user_id DESC";
     try {
         $db = getDB();
         $stmt = $db->prepare($sql);
