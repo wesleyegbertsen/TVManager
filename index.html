@@ -22,29 +22,32 @@
         <li class="divider"></li>
         <li><a href="javascript:;" ng-click="logout()">Logout</a></li>
     </ul>
-    <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#/" class="brand-logo">TVManager</a>
-            <ul class="right hide-on-med-and-down">
-                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
-                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>
-                <li ng-show="user.isLoggedIn" ng-cloak><a ng-show="user.isLoggedIn" class="dropdown-button" href="#!" data-activates="user-dropdown"><img id="user-image" src="img/default-user.png" alt="" class="circle responsive-img"> {{user.name}}<i class="user-arrow mdi-navigation-arrow-drop-down right"></i></a></li>
-            </ul>
 
-            <ul id="nav-mobile" class="side-nav">
+    <div class="navbar-fixed">
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#/" class="brand-logo">TVManager</a>
+                <ul class="right hide-on-med-and-down">
+                    <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
+                    <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>
+                    <li ng-show="user.isLoggedIn" ng-cloak><a ng-show="user.isLoggedIn" class="dropdown-button" href="#!" data-activates="user-dropdown"><img id="user-image" src="img/default-user.png" alt="" class="circle responsive-img"> {{user.name}}<i class="user-arrow mdi-navigation-arrow-drop-down right"></i></a></li>
+                </ul>
 
-                <div ng-show="user.isLoggedIn" id="user-info-sidebar">
-                    <img id="user-image-m" src="img/default-user.png" alt="" class="circle responsive-img">
-                    <span ng-bind="user.name"></span>
-                </div>
-                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
-                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>
-                <div ng-show="user.isLoggedIn" ng-cloak class="divider"></div>
-                <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'profile' }"><a href="#/profile">Profile</a></li>
-                <li ng-show="user.isLoggedIn" ng-cloak><a href="javascript:;" ng-click="logout()">Logout</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
+                <ul id="nav-mobile" class="side-nav">
+
+                    <div ng-show="user.isLoggedIn" id="user-info-sidebar">
+                        <img id="user-image-m" src="img/default-user.png" alt="" class="circle responsive-img">
+                        <span ng-bind="user.name"></span>
+                    </div>
+                    <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
+                    <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>
+                    <div ng-show="user.isLoggedIn" ng-cloak class="divider"></div>
+                    <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'profile' }"><a href="#/profile">Profile</a></li>
+                    <li ng-show="user.isLoggedIn" ng-cloak><a href="javascript:;" ng-click="logout()">Logout</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </div>
 
     <main>
         <div class="container {{main.currentPage}}">
