@@ -28,7 +28,7 @@ theApp.config(['$routeProvider', function ($routeProvider) {
         });
     }]);
 
-theApp.controller("ctrlMain",function($scope, $location,$rootScope, UserService) {
+theApp.controller("ctrlMain",["$scope", "$location", "$rootScope", "UserService", function($scope, $location, $rootScope, UserService) {
     "use strict";
 
     $scope.isLoggedIn = function () {
@@ -79,35 +79,35 @@ theApp.controller("ctrlMain",function($scope, $location,$rootScope, UserService)
         $scope.main.currentPage = currentPage;
         $scope.main.pageTitle = pageTitle;
     };
-});
+}]);
 
-theApp.controller("ctrlHome",function($scope) {
+theApp.controller("ctrlHome",["$scope", function($scope) {
     "use strict";
     $scope.setMainOptions("home", "Home");
 
-});
+}]);
 
-theApp.controller("ctrlSettings",function($scope) {
+theApp.controller("ctrlSettings",["$scope", function($scope) {
     "use strict";
     $scope.setMainOptions("settings", "Settings");
 
-});
+}]);
 
-theApp.controller("ctrlProfile",function($scope) {
+theApp.controller("ctrlProfile",["$scope", function($scope) {
     "use strict";
     $scope.setMainOptions("profile", "Profile");
 
-});
+}]);
 
-theApp.controller("ctrlTvShow",function($scope, $routeParams) {
+theApp.controller("ctrlTvShow",["$scope", "$routeParams", function($scope, $routeParams) {
     "use strict";
-    $scope.setMainOptions("tvshow", "TV Show");
+    $scope.setMainOptions("tvshow", "");
 
     $scope.tvShowId = $routeParams.tvShowId;
 
-});
+}]);
 
-theApp.controller("ctrlLogin",function($scope, $cookies,$location, UserService) {
+theApp.controller("ctrlLogin",["$scope", "$cookies","$location", "UserService", function($scope, $cookies,$location, UserService) {
     "use strict";
     $scope.setMainOptions("login", "Log-in");
     UserService.isLoggedIn(function (data) {
@@ -166,7 +166,7 @@ theApp.controller("ctrlLogin",function($scope, $cookies,$location, UserService) 
         }
     };
 
-});
+}]);
 
 theApp.directive("tvShowCard", function () {
     "use strict";
@@ -177,6 +177,7 @@ theApp.directive("tvShowCard", function () {
             name: "@name",
             info: "@info",
             poster: "@poster",
+            fanart: "@fanart",
             ytid: "@ytid"
         },
         templateUrl: "directives/tvshowcard.html",
@@ -201,6 +202,21 @@ theApp.directive("tvShowCard", function () {
         }
     };
 });
+
+/*
+    This directive makes it possible that a style tag gets parsed with Angular.
+    http://alexbaden.me/interpreting-data-binding-in-style-tags-with-angular/
+ */
+theApp.directive('parseStyle', ["$interpolate", function($interpolate) {
+    return function(scope, elem) {
+        var exp = $interpolate(elem.html()),
+            watchFunc = function() {return exp(scope);}
+
+        scope.$watch(watchFunc, function(html) {
+            elem.html(html);
+        });
+    };
+}]);
 
 /*
  Using timeout, to make sure the dropdown function is called after the ng-if is finished

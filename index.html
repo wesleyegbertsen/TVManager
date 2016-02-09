@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>TVManager</title>
+    <link rel="shortcut icon" href="favicon.ico">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,7 +26,7 @@
 
     <div class="navbar-fixed">
         <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#/" class="brand-logo">TVManager</a>
+            <div class="nav-wrapper container"><a id="logo-container" href="#/" class="brand-logo"><img src="img/tv.png" class="responsive-img" > TVManager</a>
                 <ul class="right hide-on-med-and-down">
                     <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'home' }"><a href="#/">Home</a></li>
                     <li ng-show="user.isLoggedIn" ng-cloak ng-class="{ 'active' : main.currentPage === 'settings' }"><a href="#/settings">Settings</a></li>

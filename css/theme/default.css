@@ -26,3 +26,17 @@
 .side-nav .divider {
     margin-bottom: 1px;
 }
+
+.collapsible-body {
+    background-color: #FFFFFF;
+}
+
+/* when hiding */
+.error.ng-hide-add {
+    animation:0.5s bounceOut ease;
+}
+
+/* when showing*/
+.error.ng-hide-remove {
+    animation:0.5s bounceIn ease;
+}

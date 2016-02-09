@@ -40,12 +40,12 @@ footer.page-footer {
     display: none !important;
 }
 
-/* when hiding */
-.error.ng-hide-add {
-    animation:0.5s bounceOut ease;
+.brand-logo .responsive-img {
+    vertical-align: middle;
+    margin-top: -4px;
+    width: 45px;
 }
 
-/* when showing*/
-.error.ng-hide-remove {
-    animation:0.5s bounceIn ease;
+.collection-item > .row {
+    margin-bottom: 0px !important;
 }
